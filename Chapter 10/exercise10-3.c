@@ -145,45 +145,49 @@ void analyze_hand(void)
             same_suit = 0;
     }
 
-    rank = 0;
-    suit = 0;
-
     //checking for straight
-    while(hand[rank][suit] == 0) rank++;
-    for(; rank < NUM_RANKS && num_in_rank[rank] > 0; rank++)
-        num_consec++;
-    if (num_consec == NUM_CARDS)
-    {
-        straight = true;
-        return;
-    }
+   
 
-    //while(same_rank != true)
+    bool consec =  false;
+
+
     for(rank = 0; rank < NUM_RANKS; rank++)
     {
+
+        printf("%d %d\n", rank, suit);
         for(suit = 0; suit < NUM_SUITS; suit++)
         {
+            printf("%d %d\n", rank, suit);
             if(hand[rank][suit])
+            {
+                //printf("check");
+                //consec = true;
                 multiple_rank_counter++;
+            }
         }
-
-        if(same_suit == NUM_CARDS)
+        //printf("here?");
+        if((multiple_rank_counter == 1))
         {
-            //straight = true;
-            //break out of the whole loop
-            suit = 5;
+            printf("consec");
+            num_consec++;
+            multiple_rank_counter--;
         }
-        else
-            num_consec = 0;
     }
 
+    if(num_consec == NUM_CARDS)
+    {
+        straight = true;
+    }
 
+    /*
     for (rank = 0; rank < NUM_RANKS; rank++)
     {
         if (num_in_rank[rank]== 4) four = true;
         if (num_in_rank[rank]== 3) three = true;
         if (num_in_rank[rank]== 2) pairs++;
     }  
+    */
+    
 }
 
 void print_result(void)
