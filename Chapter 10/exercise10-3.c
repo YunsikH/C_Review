@@ -146,29 +146,24 @@ void analyze_hand(void)
     }
 
     //checking for straight
-   
-
-    bool consec =  false;
-
-
+    //goes through the suits then by ranks
     for(rank = 0; rank < NUM_RANKS; rank++)
     {
-
-        printf("%d %d\n", rank, suit);
         for(suit = 0; suit < NUM_SUITS; suit++)
         {
-            printf("%d %d\n", rank, suit);
+            //if there is a card in the same rank through each suit
+            //then multiple_rank_counter counts how many cards of different suits are in the same rank
             if(hand[rank][suit])
             {
-                //printf("check");
-                //consec = true;
                 multiple_rank_counter++;
             }
         }
-        //printf("here?");
+        //if there is only one card in the same rank then it could be a straight
+        //but if there is more than one card in the same rank then it can never be a straight
+        //since the cards saved in hand are already in order we dont need to sort just go through the multidimensional array
+        //
         if((multiple_rank_counter == 1))
         {
-            printf("consec");
             num_consec++;
             multiple_rank_counter--;
         }
@@ -180,6 +175,8 @@ void analyze_hand(void)
     }
 
     /*
+    //checking for fours, threes and pairs
+    //go through each rank
     for (rank = 0; rank < NUM_RANKS; rank++)
     {
         if (num_in_rank[rank]== 4) four = true;
