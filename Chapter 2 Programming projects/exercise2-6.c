@@ -1,6 +1,6 @@
 #include <stdio.h>
 //horners rules for evaluating polynomials
-//currently broken
+//fixed by observing the order of operations properly
 int main(void)
 {
     long x;
