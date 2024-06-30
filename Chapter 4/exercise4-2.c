@@ -1,4 +1,5 @@
 #include <stdio.h>
+//uses arithmetic to figure out the digits
 
 int main(void)
 {
