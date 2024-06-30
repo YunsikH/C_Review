@@ -17,13 +17,13 @@ int main(void)
     printf("Enter a dollar amount: ");
     scanf("%d", &amount);
 
-    printf("$20 bills: %2d\n", amount / 20);
-    amount = amount % 20;
-    printf("$10 bills: %2d\n", amount / 10);
-    amount = amount % 10;
-    printf(" $5 bills: %2d\n", amount / 5);
-    amount = amount % 5;
-    printf(" $1 bills: %2d\n", amount / 1);
+    printf("$20 bills: %2d\n", amount / TWENTY_DOLLAR_BILL);
+    amount = amount % TWENTY_DOLLAR_BILL;
+    printf("$10 bills: %2d\n", amount / TEN_DOLLAR_BILL);
+    amount = amount % TEN_DOLLAR_BILL;
+    printf(" $5 bills: %2d\n", amount / FIVE_DOLLAR_BILL);
+    amount = amount % FIVE_DOLLAR_BILL;
+    printf(" $1 bills: %2d\n", amount / ONE_DOLLAR_BILL);
 
     return 0;
 }
