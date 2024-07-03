@@ -9,8 +9,11 @@ int main(void)
     
     printf("Equivalent 12-hour time: ");
     
-    
-    if(hour >= 12 && hour < 24)
+    if (hour == 0)
+    {
+        printf("12:%d am", min);
+    }
+    else if(hour >= 12 && hour < 24)
     {
         if(hour != 12)
         {
