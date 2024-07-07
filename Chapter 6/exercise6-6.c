@@ -2,16 +2,16 @@
 
 int main(void)
 {
-    int nomber;
+    int nomber, i, j;
 
     scanf("%d", &nomber);
 
-    for (int i = 1; i < nomber; i++)
+    for (i = 1; i <= nomber; i++)
     {
-        if ( ((i * i) % 2) == 0)
+        for (j = 0; j < i; j++)
         {
-            i = i * i;
-            printf("%d\n", i);
+            if(j * j == i && i % 2 == 0)
+                printf("%d\n", i);
         }
     }
 
