@@ -1,4 +1,8 @@
 #include <stdio.h>
+/*
+    Basic scanf demonstration where it peeks the next string in a weird way.
+    scanf can ask for input from the user that matches what the computer asks for
+*/
 
 int main(void)
 {
