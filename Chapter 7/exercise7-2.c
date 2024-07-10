@@ -3,25 +3,24 @@
 
 int main(void)
 {
-    int i, n, count = 2;
-    while (count >= 0)
-    {
-        printf("This program prints a table of squares.\n");
-        printf("Enter number of entries in table: ");
-        scanf("%d", &n);
+    int i, n, count = 0;
+    char ch;
+    printf("This program prints a table of squares.\n");
+    printf("Enter number of entries in table: ");
+    scanf("%d", &n);
+    ch = getchar();
 
-        for (i = 1; i <= n; i++)
-        {
-            printf("%10d%10d\n", i, i * i);
-        }
-        count--;
-        if(count == 0)
+    for (i = 1; i <= n; i++)
+    {
+        printf("%10d%10d\n", i, i * i);
+        //count++;
+
+        if(i % 24 == 0)
         {
             printf("Press Enter to continue...");
-            getchar();
+            ch = getchar();
         }
     }
-
 
     return 0;
 }
