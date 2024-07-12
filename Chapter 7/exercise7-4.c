@@ -34,6 +34,9 @@ int main(void)
              case 'W': case 'X': case 'Y': case 'Z':
             printf("9");
                 break;
+            default:
+                putchar(ch);
+                break;
         }
     }
 

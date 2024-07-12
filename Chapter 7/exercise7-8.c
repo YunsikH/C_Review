@@ -2,10 +2,32 @@
 
 int main(void)
 {
+    char ch;
     int hours, minutes, minutes_to_midnight;
 
-    printf("Enter a 24-hour time: ");
+    printf("Enter a time (H:M AM/PM): ");
     scanf("%d:%d", &hours, &minutes);
+
+    while ((ch = getchar()) != '\n')
+    {
+        switch (ch)
+        {
+            case 'a': case 'A':
+                if(hours == 12)
+                {
+                    hours -= 12;
+                }
+                break;
+            case 'p': case 'P':
+                if(hours != 12)
+                {
+                    hours += 12;    
+                }
+                break;
+            default:
+                break;
+        }
+    }
 
     printf("Closest departure time is ");
 
@@ -25,7 +47,7 @@ int main(void)
         printf("3:45 p.m., arriving at 5:55 p.m.");
     else if (minutes_to_midnight < (19 * 60))
         printf("7:00 p.m., arriving at 9:20 p.m.");
-    else if (minutes_to_midnight , (21 * 60 + 45))
+    else if (minutes_to_midnight < (21 * 60 + 45))
         printf("9:45 p.m., arriving at 11:58 p.m.");
        
     return 0;
