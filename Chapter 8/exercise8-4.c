@@ -1,43 +1,23 @@
 #include <stdio.h>
 
-#define NUM_RATES ((int) (sizeof(value) / sizeof(value[0])))
-//num_rates gives us length of array
-#define INITIAL_BALANCE 100.00
+#define N 10
 
 int main(void)
 {
-    int i, low_rate, num_years, year, month;
-    //value is used in NUM_RATES
-    double value[5];
+    int a[N], i;
 
-    printf("Enter interest rate: ");
-    scanf("%d", &low_rate);
-    printf("Enter number of years: ");
-    scanf("%d", &num_years);
-
-    //prints the first row
-    printf("\nYears");
-    for (i = 0; i < NUM_RATES; i++)
+    printf("Enter %d numbers: ", N);
+    for  (i = 0; i < ((int) sizeof(a)/sizeof(a[0])); i++)
     {
-        printf("%6d%%", low_rate + i);
-        value[i] = INITIAL_BALANCE;
+        scanf("%d", &a[i]);
+    }
+
+    printf("In reverse order:");
+    for  (i = ((int) sizeof(a)/sizeof(a[0])) - 1; i >= 0; i--)
+    {
+        printf(" %d", a[i]);
     }
     printf("\n");
-
-    //prints all rows
-    for (year = 1; year <=  num_years; year++)
-    {
-        printf("%3d     ", year);
-        for (i = 0; i < NUM_RATES; i++)
-        {
-            for (month = 0; month < 12; month++)
-            {
-                value[i] += ((double)  (low_rate + i)/12) / 100.0 * value[i];
-            }
-            printf("%7.2f", value[i]);
-        }
-        printf("\n");
-    }
     
 
     return 0;

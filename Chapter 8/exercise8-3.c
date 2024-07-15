@@ -1,24 +1,42 @@
 #include <stdio.h>
 
-#define N 10
-
 int main(void)
 {
-    int a[N], i;
-
-    printf("Enter %d numbers: ", N);
-    for  (i = 0; i < 10 ; i++)
-    {
-        scanf("%d", &a[i]);
-    }
-
-    printf("In reverse order:");
-    for  (i = N-1; i >= 0; i--)
-    {
-        printf(" %d", a[i]);
-    }
-    printf("\n");
+    int digit, i, run = 1;
+    long n;
     
+    while(run)
+    {
+        int digit_count[10] = {0};
+        
+        printf("Enter a number: ");
+        scanf("%ld", &n);
+
+        if(n != 0)
+        {
+            while(n > 0)
+            {
+                //Finds the remainder 0 - 9 which is the last digit of n exactly
+                digit = n % 10;
+                digit_count[digit]++;
+                n /= 10;
+            }
+
+            printf("Digit:\t\t");
+            for(i = 0; i < ((int) (sizeof(digit_count)/sizeof(digit_count[0]))); i++)
+            {
+                printf(" %d", i);
+            }
+            printf("\nOccurences:\t");
+            for(i = 0; i < ((int) (sizeof(digit_count)/sizeof(digit_count[0]))); i++)
+            {
+                    printf(" %d", digit_count[i]);
+            }
+            printf("\n");
+        }
+        else
+            break;
+    }
 
     return 0;
 }
