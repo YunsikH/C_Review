@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 
-#define LENGTH 100
+#define LENGTH 5
 
 int main(void)
 {
@@ -12,27 +12,32 @@ int main(void)
     for array going through the char array, and changing each letter, then appending 10 exclamation marks    
     */
     int i;
-    char sentence[LENGTH], ch;
+    char sentence[LENGTH];
 
     printf("Enter Message: ");
 
     /*
     for (i = 0; i < LENGTH; i++)
     {
-        scanf("%c", &sentence[i]);
-
-        if (sentence[i] == '\n')
+        if(sentence[i] == '\n')
+        {
             break;
+        }
+        else
+        {
+            scanf("%c", &sentence[0]);
+        }
     }
     */
 
     //more compact way of saving a message to  sentence
     while((ch = getchar()) != '\n' && i < LENGTH)
         sentence[i++] = ch;
+ 
     
     printf("In B1FF-speak: ");
-    
-    for (i = 0; i < LENGTH; i++)
+    /*
+    for (i = 0; i < ((int) sizeof(sentence)/sizeof(sentence[0])); i++)
     {
         if (sentence[i] == '\n')
             break;
@@ -64,9 +69,11 @@ int main(void)
                     break;
             }
         }
-    }
 
+    }
+    */
     printf("!!!!!!!!!!");
+    printf("%s End", sentence);
 
     return 0;
 }
