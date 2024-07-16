@@ -1,43 +1,36 @@
 #include <stdio.h>
 #include <ctype.h>
-
-#define LENGTH 5
-
-int main(void)
-{
     /*
     Biff Filter
     take in character input into a character aray
     convert the message into biff speak
     for array going through the char array, and changing each letter, then appending 10 exclamation marks    
     */
+
+#define LENGTH 100
+
+int main(void)
+{
     int i;
     char sentence[LENGTH];
 
     printf("Enter Message: ");
 
-    /*
     for (i = 0; i < LENGTH; i++)
     {
+        scanf("%c", &sentence[i]);
         if(sentence[i] == '\n')
-        {
             break;
-        }
-        else
-        {
-            scanf("%c", &sentence[0]);
-        }
     }
-    */
 
     //more compact way of saving a message to  sentence
-    while((ch = getchar()) != '\n' && i < LENGTH)
+    /*while((ch = getchar()) != '\n' && i < LENGTH)
         sentence[i++] = ch;
- 
+    */
     
     printf("In B1FF-speak: ");
-    /*
-    for (i = 0; i < ((int) sizeof(sentence)/sizeof(sentence[0])); i++)
+    
+    for (i = 0; i < LENGTH; i++)
     {
         if (sentence[i] == '\n')
             break;
@@ -69,11 +62,9 @@ int main(void)
                     break;
             }
         }
-
     }
-    */
+    
     printf("!!!!!!!!!!");
-    printf("%s End", sentence);
 
     return 0;
 }
