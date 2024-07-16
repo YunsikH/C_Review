@@ -11,11 +11,12 @@ int main(void)
     convert the message into biff speak
     for array going through the char array, and changing each letter, then appending 10 exclamation marks    
     */
-    int i, j;
+    int i;
     char sentence[LENGTH], ch;
 
     printf("Enter Message: ");
 
+    /*
     for (i = 0; i < LENGTH; i++)
     {
         scanf("%c", &sentence[i]);
@@ -23,6 +24,11 @@ int main(void)
         if (sentence[i] == '\n')
             break;
     }
+    */
+
+    //more compact way of saving a message to  sentence
+    while((ch = getchar()) != '\n' && i < LENGTH)
+        sentence[i++] = ch;
     
     printf("In B1FF-speak: ");
     
@@ -32,12 +38,11 @@ int main(void)
             break;
         else
         {
-            switch (sentence[i])
+            switch (toupper(sentence[i]))
             {
                 case 'A': case 'a':
                     putchar('4');
                     break;
-                /*
                 case 'B':
                     putchar('8');
                     break;
@@ -53,9 +58,9 @@ int main(void)
                 case 'S':
                     putchar('5');
                     break;
-                    */
                 default:
-                    printf("%c", toupper(sentence[i]));
+                    putchar(toupper(sentence[i]));
+                    //printf("%c", toupper(sentence[i]));
                     break;
             }
         }

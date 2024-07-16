@@ -1,0 +1,283 @@
+[33mcommit bd3fd97a97ce6824acd801f4c3da9b5ee36403b1[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Tue Jul 16 12:30:26 2024 +1200
+
+    solved the error of my ways
+
+[33mcommit 7029ec38855cb7427b9603509c7c43bbc296fc14[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Tue Jul 16 11:52:54 2024 +1200
+
+    changed the names to point to the right exercise in the book
+
+[33mcommit 365d9fa6626b24fcb1dd32a7e3f494c3bd4b059c[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Tue Jul 16 11:04:45 2024 +1200
+
+    minor format change
+
+[33mcommit 1b7db8e48d3e81cc48f4e05c71e7066e01b2a56f[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Tue Jul 16 11:03:14 2024 +1200
+
+    Finished exercise
+
+[33mcommit 83a3e9ef77f06641af4dfd9268ee1a66ae98edf1[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Tue Jul 16 09:58:26 2024 +1200
+
+    gitignore should now ignore the right files
+
+[33mcommit e47f92a6937bba1f0b4d40640a73f580032e4f1a[m
+Merge: ace412e ad7aab1
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Tue Jul 16 09:54:40 2024 +1200
+
+    Merge branch 'main' of https://github.com/YunsikH/C_Review
+    Trying to fix a mistake
+
+[33mcommit ace412efbf72bc550a95636a2275d7f9931526dc[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Tue Jul 16 09:52:29 2024 +1200
+
+    removed ex answers
+
+[33mcommit b517e2a45a8de24cd8a5faa664d0f5c7a740e1b5[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Tue Jul 16 09:52:09 2024 +1200
+
+    started new exercise
+
+[33mcommit b492a30bc2f7d18fdece30760a131eb0cb19d4cb[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Tue Jul 16 09:51:09 2024 +1200
+
+    removed .exe files for now
+
+[33mcommit ad7aab124345387c60b7d628239fa3492e6ede5d[m
+Author: YunsikH <yunsikhan.yh@gmail.com>
+Date:   Mon Jul 15 13:36:04 2024 +1200
+
+    Create README.md
+
+[33mcommit 118e5f614b225d535379376fa5a6a0485f983b38[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Mon Jul 15 11:52:05 2024 +1200
+
+    finished exercises
+
+[33mcommit 9874edcad9227cb14421b37c2506dc592db28518[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Mon Jul 15 11:25:42 2024 +1200
+
+    Finished exercises
+
+[33mcommit 46168caa4298bf05949d8f84694970bff06e40da[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Fri Jul 12 13:48:56 2024 +1200
+
+    finished exercises
+
+[33mcommit ec55390c778d5e919cfa1aa0e3bb7a482ac02d8b[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Thu Jul 11 10:53:49 2024 +1200
+
+    renamed exercises for easier recall
+
+[33mcommit 7db1e75a4315ce82190fc6ef7a552e8d67149995[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Thu Jul 11 10:44:49 2024 +1200
+
+    added example
+
+[33mcommit fa4f795b4ff7b27895952f277653ecbfde670ac9[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Wed Jul 10 12:08:06 2024 +1200
+
+    Started exercise, finished calculating factorial, working on euler loop
+
+[33mcommit 7f88438cb3ff3e32b1e0428bd8affa97ef029680[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Wed Jul 10 11:07:02 2024 +1200
+
+    exercise6 11 was supposed to be 6 10
+
+[33mcommit 30bd7e698638819f53ff11781c28f5f72a694cc9[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Tue Jul 9 12:26:09 2024 +1200
+
+    finished exercise
+
+[33mcommit e807eab7d6d3ef49a2dfeb5aeceb382fcc2a330c[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Tue Jul 9 10:50:11 2024 +1200
+
+    finished exercises
+
+[33mcommit 7f84a5b06db1472915fbf1bff67d3735d2eaa4f6[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Mon Jul 8 11:50:15 2024 +1200
+
+    finished exercises
+
+[33mcommit 828b973ac9353dc258aaad392f9f9d5978e95d8f[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Fri Jul 5 12:25:48 2024 +1200
+
+    finished exercises
+
+[33mcommit 21c4a025e7d0737d5852957e34772db632bd0171[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Thu Jul 4 10:50:03 2024 +1200
+
+    Finished exercises
+
+[33mcommit 8853595249cec03794a68713427aeb914f89c95c[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Wed Jul 3 11:31:11 2024 +1200
+
+    finished exercises
+
+[33mcommit 12bde9b992edff358e03e904cde8156aeb54e5d6[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Tue Jul 2 10:44:05 2024 +1200
+
+    finished exercises
+
+[33mcommit 782039885520042a5e84c3aad0efbe478fdc81b0[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Tue Jul 2 10:43:48 2024 +1200
+
+    fixed typos
+
+[33mcommit d10d1a9ca463a360db61d457ac2e2ce7f0ee425b[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Tue Jul 2 10:06:09 2024 +1200
+
+    finished missing code
+
+[33mcommit 5c0049f591fc0118ad354de57004f6114fd959d8[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Tue Jul 2 10:05:28 2024 +1200
+
+    finished exercise
+
+[33mcommit 190ab8599b1f1f01989aff0076979bb768901639[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Mon Jul 1 11:42:20 2024 +1200
+
+    added a comment to explain programme method
+
+[33mcommit 6dbd2c0437f6bcdac0948d11efda8659f872d1ce[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Mon Jul 1 11:39:44 2024 +1200
+
+    completed exercise
+
+[33mcommit c63eb1920079e80c5f8421b57eec8a576ecebfb3[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Mon Jul 1 11:30:38 2024 +1200
+
+    Completed exercise
+
+[33mcommit 41b5feeab318385a1604cf66f2835e030cab80f2[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Mon Jul 1 11:23:35 2024 +1200
+
+    finished exercise
+
+[33mcommit cccf59ba86960df91f3342b23384ea77c9103b52[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Mon Jul 1 11:21:03 2024 +1200
+
+    finished exercise3-5
+
+[33mcommit 4dd07c60d8c11be8c76b1642e8c365e04feaadba[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Mon Jul 1 11:11:33 2024 +1200
+
+    Added finished exercise
+
+[33mcommit 5a1afa6788fbf4a49f090140ac2f215778093be3[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Mon Jul 1 11:06:42 2024 +1200
+
+    Minor saved changes
+
+[33mcommit 214961ad3246db38e7e56e38e87b876c669a30e4[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Fri Jun 28 11:54:11 2024 +1200
+
+    changed folder name to match the rest
+
+[33mcommit a21568784a0ffcffaccb23385abfa3aa8706e159[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Fri Jun 28 11:49:46 2024 +1200
+
+    finished exercise2-8.c
+
+[33mcommit e459fbd7c75ee1dfddf0413170c3af3299d3df84[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Fri Jun 28 11:33:47 2024 +1200
+
+    started exercise 2-8
+
+[33mcommit 6faf6e0e0b27e0769dbf3937feb8d806cea812f1[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Fri Jun 28 11:29:00 2024 +1200
+
+    added exercise 2-7
+
+[33mcommit 8cf92ea9481772de67faa534fa91afb7bcf5d818[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Fri Jun 28 11:14:08 2024 +1200
+
+    Comment added
+
+[33mcommit a573433add3977609290fe1e96004e78ec3324f3[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Fri Jun 28 11:12:53 2024 +1200
+
+    Fixed exercise 2-6 by proper observation of orders
+
+[33mcommit 22c614ca12010f39e16705ef6c4ea3099bc74869[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Wed Jun 26 11:47:09 2024 +1200
+
+    New exercises added
+
+[33mcommit 98662e5012fa4b852153244cb488d3f101b7a708[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Wed Jun 26 11:35:38 2024 +1200
+
+    changed names to make more sense
+
+[33mcommit 819e93b94251c75ee1be6b62ce919949c52fb210[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Wed Jun 26 11:26:59 2024 +1200
+
+    Added comments to remind myself the next steps
+
+[33mcommit dac1cd0f21ab224c371c9b274a12ce12e1f304e3[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Wed Jun 26 11:25:08 2024 +1200
+
+    Add checking for straights functionality
+
+[33mcommit 265e20e87edc374e7293715f300556484894fdee[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Tue Jun 25 11:18:54 2024 +1200
+
+    added .gitignore to ignore secretsauce
+
+[33mcommit 2c0744abe5c2db43ee9e392fe75dc76ee246ec42[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Tue Jun 25 10:55:54 2024 +1200
+
+    Removed secret sauce because I have yet to understand gitignore
+
+[33mcommit a88d7574b7964ef1783316e4c0054f48100a633f[m
+Author: Yunsik Han <yunsikhan.yh@gmail.com>
+Date:   Tue Jun 25 10:27:13 2024 +1200
+
+    First commit - saving all files
