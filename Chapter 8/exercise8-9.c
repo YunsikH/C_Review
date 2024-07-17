@@ -19,6 +19,7 @@ int main(void)
 
     srand((unsigned) time(NULL));
 
+    //populates field array with .
     for (i = 0; i < COLUMN; i++)
     {
         for (j = 0; j < ROW; j++)
@@ -27,6 +28,7 @@ int main(void)
         }   
     } 
 
+    //function that determines the random path of the 'alphabet snake' in the field
     while (ch != 'Z' + 1)
     {
         field[x_pos][y_pos] = ch;
@@ -96,9 +98,9 @@ int main(void)
         {
             ch = 'Z' + 1;
         }
-
     }
 
+    //print out the array after the 'alphabet snake' has made its path 
     for (i = 0; i < COLUMN; i++)
     {
         for (j = 0; j < ROW; j++)
