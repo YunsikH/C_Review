@@ -24,18 +24,20 @@ int main(void)
     while ((ch = getchar()) != ' ');
 
     //skips the space between first and last name
-    while ((ch = getchar()) == ' ');
+    //while ((ch = getchar()) == ' ');
     
-    while ((ch = getchar()) != '\n' && i != (int) sizeof(last_name)/sizeof(last_name[0]))
+    for ( i= 0; i < (int) sizeof(last_name)/sizeof(last_name[0]) && last_name[i - 1] != '\n'; i++)
     {
-        last_name[i] = ch;
-        i++;
+        last_name[i] = getchar();
     }
     
     for (i = 0; i < (int) sizeof(last_name)/sizeof(last_name[0]) && last_name[i - 1] != '\n'; i++)
-        printf("%c", last_name[i]);
+    {
+        if (last_name[i] != '\n')   
+            printf("%c", last_name[i]);
+    }
 
-    printf(", %c.", initial);
+    printf(", %c.", toupper(initial));
 
     return 0;
 }
