@@ -1,47 +1,43 @@
 #include <stdio.h>
 #include <ctype.h>
-
-#define SENTENCE_LENGTH 80
-//#define TERM_CHAR_NEWLINE_SIZE 2 //The terminating character and the newline at the end of sentence char array
+#include <stdbool.h>
 
 int main (void)
 {
-    char ch, terminating, sentence[SENTENCE_LENGTH];
-    int i, j, no_of_characters, shift;
+    char ch;
+    int i, letter_count[26] = {0};
+    bool not_anagram = false;
 
-    printf("Enter message to be encrypted: ");
-    for ( i = 0; i < (int) sizeof(sentence)/sizeof(sentence[0]); i++)
+    printf("Enter first word: ");
+    
+    while ((ch = getchar()) != '\n')
     {
-        sentence[i] = getchar();
-        if (sentence[i] == '\n')
+        if (tolower(ch) >= 'a' && tolower(ch) <= 'z') 
         {
-            break;
+            letter_count[ch -'a']++;
         }
     }
     
-    no_of_characters = i;
+    printf("Enter second word: ");
     
-    printf("Enter shift amount (1-25): ");
-    scanf("%d", &shift);
-
-    for ( i = 0; i < (int) sizeof(sentence)/sizeof(sentence[0]) && sentence[i - 1] != '\n'; i++)
+    while ((ch = getchar()) != '\n')
     {
-        if (sentence[i] >= 'a' && sentence[i] <= 'z') 
+        if (tolower(ch) >= 'a' && tolower(ch) <= 'z') 
         {
-            sentence[i] = ((sentence[i] - 'a') + shift) % 26 + 'a';
-        }
-        else if (sentence[i] >= 'A' && sentence[i] <= 'Z')
-        {
-            sentence[i] = ((sentence[i] - 'A') + shift) % 26 + 'A';
+            letter_count[ch -'a']--;
         }
     }
 
-    printf("Encrypted message: ");
-    
-    for ( i = 0; i < no_of_characters; i++)
+    for ( i = 0; i < (int) sizeof(letter_count)/sizeof(letter_count[0]); i++)
     {
-            printf("%c", sentence[i]);
+        if (letter_count[i] > 0)
+            not_anagram = true;
     }
+
+    if (not_anagram == true)
+        printf("The words are not anagrams.");
+    else 
+        printf("The words are anagrams.");
 
     return 0;
 }
