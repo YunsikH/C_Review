@@ -6,33 +6,40 @@
 int main (void)
 {
     char ch, terminating, sentence[SENTENCE_LENGTH];
-    int i, j, prev;
+    int i, j, no_of_characters, count;
 
     for ( i = 0; i < (int) sizeof(sentence)/sizeof(sentence[0]) && sentence[i - 1] != '\n'; i++)
     {
-        ch = getchar();
+        sentence[i] = ch = getchar();
                 
         if (ch == '.' || ch == '?' || ch == '!')
         {
-            terminating = ch;
-            prev = i;
+            terminating = sentence[i];
         }
-        else
-            sentence[i] = ch;
+        
+        no_of_characters = i;
     }
     
-    
-    
-    for ( i = 0; i < (int) sizeof(sentence)/sizeof(sentence[0]) && sentence[i - 1] != '\n'; i++)
+    no_of_characters-1;
+    for ( i = no_of_characters - 1; i >= -1; i--)
     {
-        if (tolower(sentence[i])  'a' || tolower(sentence[i]) == '?' || tolower(sentence[i])i] == '!')
+        if (sentence[i] == ' ' || i == -1)
         {
-            terminating = ch;
-            prev = i;
+
+            for (j = i + 1; j < no_of_characters; j++)
+            {
+                printf("%c", sentence[j]);
+            }
+
+            if(i == -1)
+                putchar(terminating);
+            else
+                putchar(' ');
+
+            no_of_characters = i;
         }
-        else
-            sentence[i] = ch;
     }
+    
 
     return 0;
 }
