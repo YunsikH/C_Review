@@ -4,7 +4,8 @@ int main(void)
 {
     int n, row_pos, col_pos, i, j;
 
-    printf("Enter size of magic square: ");
+
+    printf("This program creats a magic square of a specified size.\nThe size must be an odd number between 1 and 99.\n Enter size of magic square: ");
     scanf("%d", &n);
 
     int magic_square[n][n];
@@ -58,7 +59,7 @@ int main(void)
     {
         for (j = 0; j < n; j++)
         {
-            printf("%4d", magic_square[j][i]);
+            printf("%5d", magic_square[j][i]);
         }
 
         printf("\n");
