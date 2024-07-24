@@ -8,9 +8,12 @@ int main(void)
     scanf("%d", &n);
 
     int magic_square[n][n];
+
+    //set starting position 
     row_pos = n / 2;
     col_pos = 0;
 
+    //sets all numbers in magicsquare to 0
     for (i = 0; i < n; i++)
     {
         for (j = 0; j < n; j++)
@@ -19,10 +22,12 @@ int main(void)
         }
     }
 
+    //fills out magic square according to instructions
     for (i = 1; i <= (n * n); i++)
     {
         magic_square[row_pos][col_pos] = i;
 
+        //moves to next position
         row_pos++;
         col_pos--;
         
@@ -35,6 +40,16 @@ int main(void)
         
         if (magic_square[row_pos][col_pos] > 0)
         {
+            //undos the move to next position
+            row_pos--;
+            col_pos++;
+
+            if (row_pos < 0)
+                row_pos = n - 1;
+
+            if (col_pos == n)
+                col_pos = 0;
+            //moves it to the proper position if previous position was already filled.
             col_pos++;
         }
     }
