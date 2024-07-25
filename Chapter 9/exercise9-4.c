@@ -2,40 +2,25 @@
 #include <ctype.h>
 #include <stdbool.h>
 
-void read_word(int counts[26]);
-bool equal_array(int counts1[26], int counts2[26]);
+#define ALPHABET_LENGTH 26
+
+void read_word(int counts[ALPHABET_LENGTH]);
+bool equal_array(int counts1[ALPHABET_LENGTH], int counts2[ALPHABET_LENGTH]);
 
 int main (void)
 {
-    char ch;
-    int i, letter_count_one[26] = {0}, letter_count_two[26] = {0};
-    bool not_anagram = false;
+    int letter_count_one[ALPHABET_LENGTH] = {0}, letter_count_two[ALPHABET_LENGTH] = {0};
+    bool not_anagram;
 
     printf("Enter first word: ");
     
-    while ((ch = getchar()) != '\n')
-    {
-        if (tolower(ch) >= 'a' && tolower(ch) <= 'z') 
-        {
-            letter_count_one[ch -'a']++;
-        }
-    }
+    read_word(letter_count_one);
     
     printf("Enter second word: ");
     
-    while ((ch = getchar()) != '\n')
-    {
-        if (tolower(ch) >= 'a' && tolower(ch) <= 'z') 
-        {
-            letter_count_one[ch -'a']--;
-        }
-    }
+    read_word(letter_count_two);
 
-    for ( i = 0; i < (int) sizeof(letter_count_one)/sizeof(letter_count_one[0]); i++)
-    {
-        if (letter_count_one[i] > 0)
-            not_anagram = true;
-    }
+    not_anagram = equal_array(letter_count_one, letter_count_two);
 
     if (not_anagram == true)
         printf("The words are not anagrams.");
@@ -45,13 +30,29 @@ int main (void)
     return 0;
 }
 
-void read_word(int counts[26])
+void read_word(int counts[ALPHABET_LENGTH])
 {
+    char ch;
 
+    while ((ch = getchar()) != '\n')
+    {
+        if (tolower(ch) >= 'a' && tolower(ch) <= 'z') 
+        {
+            counts[ch -'a']++;
+        }
+    }
 }
 
-bool equal_array(int counts1[26], int counts2[26])
+bool equal_array(int counts1[ALPHABET_LENGTH], int counts2[ALPHABET_LENGTH])
 {
-
-    return 1;
+    int i;
+    bool not_anagram = false;
+    
+    for (i = 0; i < ALPHABET_LENGTH; i++)
+        {
+            if (counts1[i] != counts2[i])
+                not_anagram = true;
+        }
+    
+    return not_anagram;
 }
