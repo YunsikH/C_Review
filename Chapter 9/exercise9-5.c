@@ -5,7 +5,7 @@ void print_magic_square(int n, int magic_square[n][n]);
 
 int main(void)
 {
-    int n, row_pos, col_pos, i, j;
+    int n;
 
     printf("This program creats a magic square of a specified size.\nThe size must be an odd number between 1 and 99.\n Enter size of magic square: ");
     scanf("%d", &n);
@@ -13,6 +13,18 @@ int main(void)
     //variable length arrays can only be declared after the size variable has been initialised 
     int magic_square[n][n];
 
+    create_magic_square(n, magic_square);
+    
+    //prints magic square
+    print_magic_square(n, magic_square);
+
+    return 0;
+}
+
+void create_magic_square(int n, int magic_square[n][n])
+{ 
+    int row_pos, col_pos, i, j;
+        
     //set starting position 
     row_pos = n / 2;
     col_pos = 0;
@@ -57,18 +69,6 @@ int main(void)
             col_pos++;
         }
     }
-
-
-    //prints magic square
-    print_magic_square(n, magic_square);
-
-    return 0;
-}
-
-void create_magic_square(int n, int magic_square[n][n])
-{
-
-
 }
 
 
