@@ -52,7 +52,7 @@ int main(void)
 
         if ((toupper(ch) != 'Y'))
             running = false;
-        
+        //clears the buffer 
         ch =  getchar();
     }
 
