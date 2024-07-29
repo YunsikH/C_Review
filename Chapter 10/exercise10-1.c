@@ -3,6 +3,7 @@ FUNCTIONS ALWAYS NEEDS PARENTHESES. IF THEY DON'T HAVE PARENTHESES THEY ARE VARI
  */
 # include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #define STACK_SIZE 100
 
@@ -24,7 +25,7 @@ char peek(void);
 int main(void)
 {
     char user;
-    printf("helpme");
+    printf("Enter parentheses and/or braces: ");
     bool running = true;
     while(running)
     {
@@ -58,7 +59,7 @@ int main(void)
     }
 
     if(is_empty())
-        printf("its empty");
+        printf("Parentheses/braces are nested properly.");
     else
         printf("full");
 
@@ -99,7 +100,8 @@ char pop(void)
 
 void stack_overflow(void)
 {
-    printf("over");
+    printf("Stack Overflow.");
+    exit(EXIT_SUCCESS);
 }
 
 void stack_underflow(void)
