@@ -48,15 +48,16 @@ int main(void)
             wins++;
         
         printf("Play again? ");
-        
-        if ((toupper(ch = getchar()) != 'Y'))
-        {
+        ch = getchar();
+
+        if ((toupper(ch) != 'Y'))
             running = false;
-        }     
+        
+        ch =  getchar();
     }
 
     //print the score
-    printf("\n\nWins: %d Losses: %d", wins, losses);
+    printf("\nWins: %d Losses: %d", wins, losses);
 
     return 0;
 }
@@ -96,7 +97,7 @@ bool play_game(void)
     printf("Your point is %d\n", point_roll);
 
     // subsequent rolls
-    do
+    while(true)
     {
         dice_roll = roll_dice();
         printf("You rolled: %d\n", dice_roll);
@@ -111,6 +112,6 @@ bool play_game(void)
             return true;
         }      
     }
-    while(true);
+   
 
 }
