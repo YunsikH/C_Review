@@ -6,9 +6,8 @@
 #define NUM_SUITS 4
 #define NUM_CARDS 5
 
-//int num_in_rank[NUM_RANKS];
-//int num_in_suit[NUM_SUITS];
-int hand[NUM_RANKS][NUM_SUITS];
+int num_in_rank[NUM_RANKS];
+int num_in_suit[NUM_SUITS];
 bool straight, flush, four, three;
 int pairs;
 
@@ -28,13 +27,12 @@ int main(void)
 
 void read_cards(void)
 {
-    //bool card_exists[NUM_RANKS][NUM_SUITS];
+    bool card_exists[NUM_RANKS][NUM_SUITS];
     char ch, rank_ch, suit_ch;
     int rank, suit;
     bool bad_card;
     int cards_read = 0;
 
-    /*
     for (rank = 0; rank < NUM_RANKS; rank++)
     {
         num_in_rank[rank] = 0;
@@ -47,17 +45,6 @@ void read_cards(void)
     for(suit = 0; suit < NUM_SUITS; suit++)
     {
         num_in_suit[suit] = 0;
-    }
-    */
-
-    for (rank = 0; rank < NUM_RANKS; rank++)
-    {
-        //hand[rank] = 0;
-        for(suit = 0; suit < NUM_SUITS; suit++)
-        {
-            //card_exists[rank][suit] = false;
-            hand[rank][suit] = 0;
-        }
     }
 
     while (cards_read < NUM_CARDS)
@@ -101,14 +88,13 @@ void read_cards(void)
         
         if(bad_card)
             printf("Bad card; ignored.\n");
-        else if(hand[rank][suit])
+        else if(card_exists[rank][suit])
             printf("Duplicate card; ignored.\n");
         else
         {
-            //make true ie make card exit
-            hand[rank][suit]++;
-            //num_in_suit[suit]++;
-            //card_exists[rank][suit] = true;
+            num_in_rank[rank]++;
+            num_in_suit[suit]++;
+            card_exists[rank][suit] = true;
             cards_read++;
         }
     }
@@ -117,74 +103,33 @@ void read_cards(void)
 void analyze_hand(void)
 {
     int num_consec = 0;
-    int multiple_rank_counter = 0;
-    int same_suit = 0;
     int rank, suit;
-    bool same_rank = false;
     straight = false;
     flush = false;
     four = false;
     three = false;
     pairs = 0;
 
-    //checking for flush
     for(suit = 0; suit < NUM_SUITS; suit++)
-    {
-        for(rank = 0; rank < NUM_RANKS; rank++)
-        {
-            if(hand[rank][suit])
-                same_suit++;
-        }
-        if(same_suit == NUM_CARDS)
-        {
+        if(num_in_suit[suit] == NUM_CARDS)
             flush = true;
-            //break out of the whole loop
-            suit = 5;
-        }
-        else
-            same_suit = 0;
-    }
-
-    //checking for straight
-    //goes through the suits then by ranks
-    for(rank = 0; rank < NUM_RANKS; rank++)
-    {
-        for(suit = 0; suit < NUM_SUITS; suit++)
-        {
-            //if there is a card in the same rank through each suit
-            //then multiple_rank_counter counts how many cards of different suits are in the same rank
-            if(hand[rank][suit])
-            {
-                multiple_rank_counter++;
-            }
-        }
-        //if there is only one card in the same rank then it could be a straight
-        //but if there is more than one card in the same rank then it can never be a straight
-        //since the cards saved in hand are already in order we dont need to sort just go through the multidimensional array
-        //
-        if((multiple_rank_counter == 1))
-        {
-            num_consec++;
-            multiple_rank_counter--;
-        }
-    }
-
-    if(num_consec == NUM_CARDS)
+    
+    rank = 0;
+    while(num_in_rank[rank] == 0) rank++;
+    for(; rank < NUM_RANKS && num_in_rank[rank] > 0; rank++)
+        num_consec++;
+    if (num_consec == NUM_CARDS)
     {
         straight = true;
+        return;
     }
 
-    /*
-    //checking for fours, threes and pairs
-    //go through each rank
     for (rank = 0; rank < NUM_RANKS; rank++)
     {
         if (num_in_rank[rank]== 4) four = true;
         if (num_in_rank[rank]== 3) three = true;
         if (num_in_rank[rank]== 2) pairs++;
     }  
-    */
-    
 }
 
 void print_result(void)
