@@ -15,17 +15,16 @@
  * to play again, user must respond with y or Y
  * any other input will display the number of iwns and then terminate
  */
-
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
 #include <time.h>
+#include <ctype.h>
 
 #define DIE_SIZE 6
 
 int roll_dice(void);
 bool play_game(void);
-
 
 /**
  * Main calls play_game until the user wants to stop
@@ -37,14 +36,27 @@ int main(void)
     srand((unsigned) time(NULL));
     bool outcome, running = true;
     int wins = 0, losses = 0;
+    char ch;
+
     while(running)
     {
         outcome = play_game();
+
         if (outcome == false)
             losses++;
         else if (outcome == true)
             wins++;
+        
+        printf("Play again? ");
+        
+        if ((toupper(ch = getchar()) != 'Y'))
+        {
+            running = false;
+        }     
     }
+
+    //print the score
+    printf("\n\nWins: %d Losses: %d", wins, losses);
 
     return 0;
 }
@@ -63,21 +75,42 @@ int roll_dice(void)
 bool play_game(void)
 {
     //bool outcome;
-    int point_roll, first_roll;
+    int point_roll, dice_roll;
 
-    first_roll = roll_dice();
-    printf("You rolled: %d\n", first_roll);
-    if (first_roll == 7 || first_roll == 11)//winning on first roll
+    //first roll
+    dice_roll = roll_dice();
+    printf("You rolled: %d\n", dice_roll);
+    if (dice_roll == 7 || dice_roll == 11)//winning on first roll
     {
         printf("You Win!\n\n");
         return true;
     }
-    else if (first_roll == 2 || first_roll == 3 || first_roll == 12) //losing on first roll
+    else if (dice_roll == 2 || dice_roll == 3 || dice_roll == 12) //losing on first roll
     {
-
+        printf("You Lose!\n\n");
         return false;
     }
+
+    //set point roll
+    point_roll = dice_roll;
     printf("Your point is %d\n", point_roll);
 
+    // subsequent rolls
+    do
+    {
+        dice_roll = roll_dice();
+        printf("You rolled: %d\n", dice_roll);
+        if (dice_roll == 7)
+        {
+            printf("You Lose!\n\n");
+            return false;
+        }
+        else if (dice_roll == point_roll)
+        {
+            printf("You Win!\n\n");
+            return true;
+        }      
+    }
+    while(true);
 
 }
