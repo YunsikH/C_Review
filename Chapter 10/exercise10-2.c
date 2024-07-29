@@ -1,6 +1,3 @@
-/*
-    task is to replace numinrank,numinsuit, cardexists arrays with a 5x2 array
-*/
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
