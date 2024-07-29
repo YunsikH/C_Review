@@ -29,8 +29,8 @@ int main(void)
 void read_cards(void)
 {
     char ch, rank_ch, suit_ch;
-    int rank, suit;
-    bool bad_card;
+    int rank, suit, i;
+    bool bad_card, duplicate_card;
     int cards_read = 0;
 
     while (cards_read < NUM_CARDS)
@@ -73,14 +73,25 @@ void read_cards(void)
             if (ch != ' ') bad_card = true;
         
         if(bad_card)
-            printf("Bad card; ignored.\n");
-        else if(card_exists[rank][suit])
-            printf("Duplicate card; ignored.\n");
-        else
         {
-            num_in_rank[rank]++;
-            num_in_suit[suit]++;
-            card_exists[rank][suit] = true;
+            printf("Bad card; ignored.\n");
+            continue;
+        }
+
+        duplicate_card = false;
+        for (i = 0; i < cards_read; i++)
+        {
+
+            if(hand[i][RANK] == rank && hand[i][SUIT] == suit) //check for duplicates
+            {
+                printf("Duplicate card; ignored.\n");
+                duplicate_card = true;
+            }
+        }
+        if (!duplicate_card)
+        {
+            hand[cards_read][RANK] = rank;
+            hand[cards_read][SUIT] = suit;
             cards_read++;
         }
     }
@@ -89,17 +100,22 @@ void read_cards(void)
 void analyze_hand(void)
 {
     int num_consec = 0;
-    int rank, suit;
+    int rank, suit, i;
     straight = false;
-    flush = false;
+    flush = true;
     four = false;
     three = false;
     pairs = 0;
 
-    for(suit = 0; suit < NUM_SUITS; suit++)
-        if(num_in_suit[suit] == NUM_CARDS)
-            flush = true;
-    
+    //check for flush; when suits are all the same
+    suit = hand[0][SUIT]; 
+    for(i = 0; i < NUM_CARDS; i++)
+    {
+        if(hand[i][SUIT] != suit)
+            flush = false;
+    }
+
+    //check for straight
     rank = 0;
     while(num_in_rank[rank] == 0) rank++;
     for(; rank < NUM_RANKS && num_in_rank[rank] > 0; rank++)
@@ -109,13 +125,15 @@ void analyze_hand(void)
         straight = true;
         return;
     }
-
+    /*
+    //checking for four of a kind, triples, and pairs
     for (rank = 0; rank < NUM_RANKS; rank++)
     {
         if (num_in_rank[rank]== 4) four = true;
         if (num_in_rank[rank]== 3) three = true;
         if (num_in_rank[rank]== 2) pairs++;
     }  
+    */
 }
 
 void print_result(void)
