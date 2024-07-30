@@ -100,33 +100,58 @@ void read_cards(void)
 void analyze_hand(void)
 {
     int num_consec = 0;
-    int rank, suit, i;
+    int rank, suit, i, pass, card;
     straight = false;
     flush = true;
     four = false;
     three = false;
     pairs = 0;
+    //do not allow ace low straights
+    bool ace_detected = false;
+
+    //sort by ranks, by finding the biggest number for each pass
+    for (pass = 1; pass < NUM_CARDS; pass++)// as the biggest number is already at the end we dont have to go that far; this is what this code and NUM_CARDS - PASS is for
+    {
+        //goes through each card of the hand
+        for(card = 0; card < NUM_CARDS - pass; card++)
+        {
+            //saves the current card to compare with the next card
+            rank = hand[card][RANK];
+            suit = hand[card][SUIT];
+            //if the next card is smaller than the current card, swap them around safely
+            if (hand[card + 1][RANK] < rank)
+            {
+                hand[card][RANK] = hand[card + 1][RANK]; 
+                hand[card][SUIT] = hand[card + 1][SUIT]; 
+                hand[card + 1][RANK] = rank;
+                hand[card + 1][SUIT] = suit;
+            }
+        }
+    }
 
     //check for flush; when suits are all the same
     //uses the inverse so to speak
     suit = hand[0][SUIT]; 
-    for(i = 0; i < NUM_CARDS; i++)
+    for(card = 0; card < NUM_CARDS; card++)
     {
-        if(hand[i][SUIT] != suit)
+        if(hand[card][SUIT] != suit)
             flush = false;
+
     }
 
     //check for straight
-    /*find the lowest rank then find the next rank so on, if at any point it cannot find the next rank then it is false*/
-    rank = 0;
-    while(num_in_rank[rank] == 0) rank++;
-    for(; rank < NUM_RANKS && num_in_rank[rank] > 0; rank++)
-        num_consec++;
-    if (num_consec == NUM_CARDS)
+    //Because they are already in order we just have to check if they are in order
+    for (card = 0; card < NUM_CARDS; card++)
     {
-        straight = true;
-        return;
+        if (hand[card][rank] == 12)
+            ace_detected = true;
+        if (hand[card][RANK] + 1 == hand[card + 1][RANK])
+            num_consec++;
     }
+
+    if (num_consec == 4 && ace_detected == false)
+        straight = true;
+    
     /*
     //checking for four of a kind, triples, and pairs
     for (rank = 0; rank < NUM_RANKS; rank++)
