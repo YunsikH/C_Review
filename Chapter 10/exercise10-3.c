@@ -108,6 +108,7 @@ void analyze_hand(void)
     pairs = 0;
 
     //check for flush; when suits are all the same
+    //uses the inverse so to speak
     suit = hand[0][SUIT]; 
     for(i = 0; i < NUM_CARDS; i++)
     {
@@ -116,6 +117,7 @@ void analyze_hand(void)
     }
 
     //check for straight
+    /*find the lowest rank then find the next rank so on, if at any point it cannot find the next rank then it is false*/
     rank = 0;
     while(num_in_rank[rank] == 0) rank++;
     for(; rank < NUM_RANKS && num_in_rank[rank] > 0; rank++)
