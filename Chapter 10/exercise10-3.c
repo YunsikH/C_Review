@@ -100,7 +100,7 @@ void read_cards(void)
 void analyze_hand(void)
 {
     int num_consec = 0;
-    int rank, suit, i, pass, card;
+    int rank, suit, pass, card;
     straight = false;
     flush = true;
     four = false;
@@ -152,15 +152,27 @@ void analyze_hand(void)
     if (num_consec == 4 && ace_detected == false)
         straight = true;
     
-    /*
+
     //checking for four of a kind, triples, and pairs
-    for (rank = 0; rank < NUM_RANKS; rank++)
+    int whatidk[13] = {0};
+    for (card = 0; card < NUM_CARDS; card++)
     {
-        if (num_in_rank[rank]== 4) four = true;
-        if (num_in_rank[rank]== 3) three = true;
-        if (num_in_rank[rank]== 2) pairs++;
-    }  
-    */
+        rank = hand[card][RANK];
+        whatidk[rank]++;
+    }
+    
+    for (card = 0; card < 13; card++)
+    {
+        if (whatidk[card] == 4)
+            four = true;
+        if (whatidk[card] == 3)
+            three = true;
+        if (whatidk[card] == 2)
+        {
+            pairs++;
+        }    
+    }
+
 }
 
 void print_result(void)
