@@ -154,25 +154,25 @@ void analyze_hand(void)
     
 
     //checking for four of a kind, triples, and pairs
-    int whatidk[13] = {0};
+    //counts how many duplicate ranks are using duplicates, couldn't think of a better name so duplicates will do for now...
+    int duplicates[13] = {0};
     for (card = 0; card < NUM_CARDS; card++)
     {
         rank = hand[card][RANK];
-        whatidk[rank]++;
+        duplicates[rank]++;
     }
     
     for (card = 0; card < 13; card++)
     {
-        if (whatidk[card] == 4)
+        if (duplicates[card] == 4)
             four = true;
-        if (whatidk[card] == 3)
+        if (duplicates[card] == 3)
             three = true;
-        if (whatidk[card] == 2)
+        if (duplicates[card] == 2)
         {
             pairs++;
         }    
     }
-
 }
 
 void print_result(void)
