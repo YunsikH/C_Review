@@ -21,8 +21,10 @@ char pop(void);
 void stack_overflow(void);
 void stack_underflow(void);
 char peek(void);
-//needs function to deal with operands and operators to create result
 
+//needs function to deal with operands and operators to create result
+//uses the stack
+void perform_operator(char ch);
 
 int main(void)
 {
@@ -38,7 +40,8 @@ int main(void)
             case '1': case '2': case '3': case '4': case '5': case '6':  case '7': case '8': case '9': 
                 push(user);
                 break;
-            case '*':
+            case '*': case '/': case '+': case '-':
+                perform_operator(user);
                 break;
             case '\n':
                 running = false;
@@ -101,7 +104,13 @@ void stack_underflow(void)
 
 char peek(void)
 {
-    int the_top = top - 1;
+    return contents[top - 1];
+}
 
-    return contents[the_top];
+void perform_operator(char ch)
+{
+    //take char ch to figure out what operator
+    //convert char to numbers
+    //
+    //after operator has performed, save to int result
 }
