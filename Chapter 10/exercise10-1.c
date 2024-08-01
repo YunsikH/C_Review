@@ -61,7 +61,7 @@ int main(void)
     if(is_empty())
         printf("Parentheses/braces are nested properly.");
     else
-        printf("full");
+        printf("Parentheses/braces are not nested properly.");
 
 
     return 0;
@@ -111,7 +111,5 @@ void stack_underflow(void)
 
 char peek(void)
 {
-    int the_top = top - 1;
-
-    return contents[the_top];
+    return contents[top - 1];
 }
