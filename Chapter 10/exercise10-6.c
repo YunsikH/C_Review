@@ -19,6 +19,7 @@ int contents[STACK_SIZE];
 int top = 0;
 int result = 0;
 
+//stack related functions
 void make_empty(void);
 bool is_empty(void);
 bool is_full(void);
@@ -28,40 +29,20 @@ void stack_overflow(void);
 void stack_underflow(void);
 int peek(void);
 
-//needs function to deal with operands and operators to create result
-//uses the stack
+//program related functions
 void perform_operator(char operator);
 int convert_char_to_int(char ch);
+bool run_RPN_expression(void);
 
 int main(void)
 {
-    char user;
-    printf("Enter an RPN Expression: ");
     bool running = true;
-
     while(running)
     {
-        scanf(" %c", &user);
-
-        switch(user)
-        {
-            case '1': case '2': case '3': case '4': case '5': case '6':  case '7': case '8': case '9': 
-                //save as actual int value
-                push(convert_char_to_int(user));
-                break;
-            case '*': case '/': case '+': case '-':
-                perform_operator(user);
-                break;
-            case '=':
-                running = false;
-                break;
-            default:
-                running = false;
-                break;
-        }
+        running = run_RPN_expression();
+        make_empty();
     }
 
-    printf("Value of expression: %d", pop());
     return 0;
 }
 
@@ -98,13 +79,14 @@ int pop(void)
 
 void stack_overflow(void)
 {
-    printf("Stack Overflow.");
+    printf("Expression is too complex");
     exit(EXIT_SUCCESS);
 }
 
 void stack_underflow(void)
 {
-    printf("Stack Underflow");
+    printf("Not enough operands in expression");
+    exit(EXIT_SUCCESS);
 }
 
 int peek(void)
@@ -144,3 +126,34 @@ int convert_char_to_int(char ch)
     return ch - 48;
 }
 
+bool run_RPN_expression(void)
+{
+    char user;
+    bool running = true;
+    printf("Enter an RPN Expression: ");
+
+    while(user != '=')
+    {
+        scanf(" %c", &user);
+
+        switch(user)
+        {
+            case '1': case '2': case '3': case '4': case '5': case '6':  case '7': case '8': case '9': 
+                //save as actual int value
+                push(convert_char_to_int(user));
+                break;
+            case '*': case '/': case '+': case '-':
+                perform_operator(user);
+                break;
+            case '=':
+                break;
+            default:
+                running = false;
+                break;
+        }
+    }
+
+    printf("Value of expression: %d\n", pop());
+
+    return running;
+}
