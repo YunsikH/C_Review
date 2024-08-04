@@ -53,8 +53,6 @@ int main(void)
                 break;
             default:
             break;
-
-
         }
     }
 
@@ -62,7 +60,6 @@ int main(void)
         printf("Parentheses/braces are nested properly.");
     else
         printf("Parentheses/braces are not nested properly.");
-
 
     return 0;
 }
