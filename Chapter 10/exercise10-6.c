@@ -24,13 +24,20 @@ char peek(void);
 
 //needs function to deal with operands and operators to create result
 //uses the stack
-void perform_operator(char ch);
+void perform_operator(char operator);
+int convert_char_to_int(char ch);
 
 int main(void)
 {
     char user;
     printf("Enter parentheses and/or braces: ");
     bool running = true;
+
+    /*
+        if operand is detected push onto the stuck
+
+        if operator is entered, pop 2 operands from the stack, perform the operation on the 2 operands, and then push it back into the stack
+    */
     while(running)
     {
         scanf(" %c", &user);
@@ -50,12 +57,6 @@ int main(void)
             break;
         }
     }
-
-    if(is_empty())
-        printf("Parentheses/braces are nested properly.");
-    else
-        printf("full");
-
 
     return 0;
 }
@@ -107,10 +108,37 @@ char peek(void)
     return contents[top - 1];
 }
 
-void perform_operator(char ch)
+void perform_operator(char operator)
 {
-    //take char ch to figure out what operator
-    //convert char to numbers
-    //
-    //after operator has performed, save to int result
+    char operand1, operand2;
+    int result;
+    operand1 = pop();
+    operand2 = pop();
+    switch (operator)
+    {
+        case '+':
+            result = convert_char_to_int(operand1) + convert_char_to_int(operand2);
+            break;
+        case '-':
+            result = convert_char_to_int(operand1) - convert_char_to_int(operand2);
+            break;
+        case '*':
+            result = convert_char_to_int(operand1) * convert_char_to_int(operand2);
+            break;
+        case '/':
+            result = convert_char_to_int(operand1) / convert_char_to_int(operand2);
+            break;
+    }
+}
+
+int convert_char_to_int(char ch)
+{
+    //48 is to shift int values
+    return ch - 48;
+}
+
+int convert_char_to_int(char ch)
+{
+    //48 is to shift int values
+    return ch - 48;
 }
