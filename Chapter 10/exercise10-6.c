@@ -1,7 +1,13 @@
 /*
     REVERSE POLISH NOTATION Program
     operands are single digits
- */
+
+    if operand is detected push onto the stuck
+
+    if operator is entered, pop 2 operands from the stack, perform the operation on the 2 operands, and then push it back into the stack
+    
+    operand will be saved as true int values to match result and not be too confusing
+*/
 # include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,11 +22,11 @@ int result = 0;
 void make_empty(void);
 bool is_empty(void);
 bool is_full(void);
-void push(char i);
-char pop(void);
+void push(int i);
+int pop(void);
 void stack_overflow(void);
 void stack_underflow(void);
-char peek(void);
+int peek(void);
 
 //needs function to deal with operands and operators to create result
 //uses the stack
@@ -30,14 +36,9 @@ int convert_char_to_int(char ch);
 int main(void)
 {
     char user;
-    printf("Enter parentheses and/or braces: ");
+    printf("Enter an RPN Expression: ");
     bool running = true;
 
-    /*
-        if operand is detected push onto the stuck
-
-        if operator is entered, pop 2 operands from the stack, perform the operation on the 2 operands, and then push it back into the stack
-    */
     while(running)
     {
         scanf(" %c", &user);
@@ -45,19 +46,22 @@ int main(void)
         switch(user)
         {
             case '1': case '2': case '3': case '4': case '5': case '6':  case '7': case '8': case '9': 
-                push(user);
+                //save as actual int value
+                push(convert_char_to_int(user));
                 break;
             case '*': case '/': case '+': case '-':
                 perform_operator(user);
                 break;
-            case '\n':
+            case '=':
                 running = false;
                 break;
             default:
-            break;
+                running = false;
+                break;
         }
     }
 
+    printf("Value of expression: %d", pop());
     return 0;
 }
 
@@ -76,7 +80,7 @@ bool is_full(void)
     return top == STACK_SIZE;
 }
 
-void push(char i)
+void push(int i)
 {
     if (is_full())
         stack_overflow();
@@ -84,7 +88,7 @@ void push(char i)
         contents[top++] = i;        
 }
 
-char pop(void)
+int pop(void)
 {
     if (is_empty())
         stack_underflow();
@@ -100,35 +104,38 @@ void stack_overflow(void)
 
 void stack_underflow(void)
 {
-    printf("under");
+    printf("Stack Underflow");
 }
 
-char peek(void)
+int peek(void)
 {
     return contents[top - 1];
 }
 
 void perform_operator(char operator)
 {
-    char operand1, operand2;
-    int result;
+    int result, operand1, operand2;
     operand1 = pop();
     operand2 = pop();
     switch (operator)
     {
         case '+':
-            result = convert_char_to_int(operand1) + convert_char_to_int(operand2);
+            result = operand2 + operand1;
             break;
         case '-':
-            result = convert_char_to_int(operand1) - convert_char_to_int(operand2);
+            result = operand2 - operand1;
             break;
         case '*':
-            result = convert_char_to_int(operand1) * convert_char_to_int(operand2);
+            result = operand2 * operand1;
             break;
         case '/':
-            result = convert_char_to_int(operand1) / convert_char_to_int(operand2);
+            result = operand2 / operand1;
+            break;
+        default:
             break;
     }
+
+    push(result);
 }
 
 int convert_char_to_int(char ch)
@@ -137,8 +144,3 @@ int convert_char_to_int(char ch)
     return ch - 48;
 }
 
-int convert_char_to_int(char ch)
-{
-    //48 is to shift int values
-    return ch - 48;
-}
