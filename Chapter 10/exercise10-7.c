@@ -5,25 +5,22 @@
 int segments[MAX_DIGITS][7] = 
 {
     {1, 1, 1, 1, 1, 1, 0},
-    {0, 1, 1, 0, 0, 0, 0},
+    {0, 1, 1, 0, 0, 0, 0},//1
     {1, 1, 0, 1, 1, 0, 1},
     {1, 1, 1, 1, 0, 0, 1},
-    {1, 1, 1, 1, 1, 1, 0},
-    {1, 1, 1, 1, 1, 1, 0},
-    {1, 1, 1, 1, 1, 1, 0},
-    {1, 1, 1, 1, 1, 1, 0},
-    {1, 1, 1, 1, 1, 1, 0},
-    {1, 1, 1, 1, 1, 1, 0},
-    //0th, 3rd and 6th element are _, the reast are |
+    {0, 1, 1, 0, 0, 1, 1}, //4
+    {1, 0, 1, 1, 0, 1, 1}, //5
+    {1, 0, 1, 1, 1, 1, 1},
+    {1, 1, 1, 0, 0, 0, 0},
+    {1, 1, 1, 1, 1, 1, 1},
+    {1, 1, 1, 1, 0, 1, 1},
+    //0th, 3rd and 6th element are _, the rest are |
 };
 
 //this will save the displayed 
-char digits[4][MAX_DIGITS * 4] = 
-{
-   
-};
+char digits[4][MAX_DIGITS * 4];
 
-
+//Goes through the digits array and initialises all elements to space
 void clear_digits_array(void);
 
 /*
