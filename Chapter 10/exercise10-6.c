@@ -17,7 +17,6 @@
 //External Variables
 int contents[STACK_SIZE];
 int top = 0;
-int result = 0;
 
 //stack related functions
 void make_empty(void);
@@ -32,14 +31,13 @@ int peek(void);
 //program related functions
 void perform_operator(char operator);
 int convert_char_to_int(char ch);
-bool run_RPN_expression(void);
+void run_RPN_expression(void);
 
 int main(void)
 {
-    bool running = true;
-    while(running)
+    for(;;)
     {
-        running = run_RPN_expression();
+        run_RPN_expression();
         make_empty();
     }
 
@@ -49,6 +47,7 @@ int main(void)
 void make_empty(void)
 {
     top = 0;
+    printf("");
 }
 
 bool is_empty(void)
@@ -126,10 +125,9 @@ int convert_char_to_int(char ch)
     return ch - 48;
 }
 
-bool run_RPN_expression(void)
+void run_RPN_expression(void)
 {
     char user;
-    bool running = true;
     printf("Enter an RPN Expression: ");
 
     while(user != '=')
@@ -148,12 +146,12 @@ bool run_RPN_expression(void)
             case '=':
                 break;
             default:
-                running = false;
+                exit(EXIT_SUCCESS);
                 break;
         }
     }
+    //clears buffer for next loop
 
     printf("Value of expression: %d\n", pop());
 
-    return running;
 }
