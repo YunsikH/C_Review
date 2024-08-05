@@ -2,6 +2,13 @@
 
 #define MAX_DIGITS 10
 
+/*
+      _  <-0
+ 5-> |_| <-1 center segment is 6
+ 4_> |_| <-2
+      ^
+      3
+*/
 int segments[MAX_DIGITS][7] = 
 {
     {1, 1, 1, 1, 1, 1, 0},
@@ -24,14 +31,13 @@ char digits[4][MAX_DIGITS * 4];
 void clear_digits_array(void);
 
 /*
-saves the printed display into digits to be printed
-    {' ', ' ', ' ', ' ', ' ', '_', ' ', ' '},
-    {' ', ' ', '|', ' ', ' ', '_', '|', ' '},
-    {' ', ' ', '|', ' ', '|', '_', ' ', ' '},
-    {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}
+    reads the digit input, converts it using segment, and saves the segmented digit into digits
 */
 void process_digit(int digit, int position);
 
+/*
+    prints the digits array
+*/
 void print_digits_array(void);
 
 int main(void)
