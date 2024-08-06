@@ -29,13 +29,13 @@ const int segments[MAX_DIGITS][7] =
 /*
     this will hold the digit segment display 
       SINGLE_SEGMENT_LENGTH = 3
-      0 1 2 3  ~~~~ 40 spaces
+    + 0 1 2 3  ~~~~ 40 spaces
     0 x _ x x
     1 | _ | x
     2 | _ | x
     3 x x x x
 
-      0 1 2 3
+    + 0 1 2 3
     0 x 0 x x
     1 5 6 1 x
     2 4 3 2 x
@@ -100,31 +100,30 @@ void process_digit(int digit, int position)
     //seven is number of segments to create the display
     for (i = 0; i < 7; i++)
     {
-        if (segments[i][digit] == 1)
+        if (segments[digit][i] == 1)
         {
             switch (i)
             {
                 case 0:
-                    digits[0][2 + (position * SINGLE_SEGMENT_LENGTH)] = '_';
+                    digits[0][1 + (position * SINGLE_SEGMENT_LENGTH)] = '_';
                     break;
                 case 3: 
-                    digits[2][2 + (position * SINGLE_SEGMENT_LENGTH)] = '_';
+                    digits[2][1 + (position * SINGLE_SEGMENT_LENGTH)] = '_';
                     break;                
                 case 6:
-                    digits[1][2 +(position * SINGLE_SEGMENT_LENGTH)] = '_';
+                    digits[1][1 +(position * SINGLE_SEGMENT_LENGTH)] = '_';
                     break;
-
                 case 1: 
-                    digits[1][(position * SINGLE_SEGMENT_LENGTH)];
+                    digits[1][2 + (position * SINGLE_SEGMENT_LENGTH)] = '|';
                     break;
                 case 2: 
-                    digits[2][(position * SINGLE_SEGMENT_LENGTH)];
+                    digits[2][2 + (position * SINGLE_SEGMENT_LENGTH)] = '|';
                     break;
                 case 4: 
-                    digits[4][(position * SINGLE_SEGMENT_LENGTH)];
+                    digits[2][0 + (position * SINGLE_SEGMENT_LENGTH)] = '|';
                     break;
                 case 5:
-                    digits[5][(position * SINGLE_SEGMENT_LENGTH)];                
+                    digits[1][0 + (position * SINGLE_SEGMENT_LENGTH)] = '|';                
                     break;
                 default:
                     break;
@@ -137,12 +136,13 @@ void process_digit(int digit, int position)
 void print_digits_array(void)
 {
     int x, y;
-    
+
     for (x = 0; x < SEGMENT_HEIGHT; x++)
     {
         for (y = 0; y < MAX_DIGITS * SEGMENT_HEIGHT; y++)
         {
             printf("%c", digits[x][y]);
         }
+        putchar('\n');
     }
 }
