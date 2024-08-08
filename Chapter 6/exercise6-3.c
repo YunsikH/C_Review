@@ -3,11 +3,11 @@
 
 int main(void)
 {
-    int m, n, n1, n2, remainder, gcd;
+    int gcd, n, n1, n2, remainder;
 
     printf("Enter a fraction: ");
     scanf("%d/%d", &n1, &n2);
-    m = n1;
+    gcd = n1;
     n = n2;
     //cheat way
     /*
@@ -18,17 +18,14 @@ int main(void)
     }
     */
 
-    if (n == 0)
-        gcd = m;
-    else
     while (n != 0)
     {
-            remainder = m % n;
-            m = n;
+            remainder = gcd % n;
+            gcd = n;
             n = remainder;
-    }
+    } 
 
-    printf("In lowest terms: %d/%d", n1 / m, n2 / m);
+    printf("In lowest terms: %d/%d %d", n1 / gcd, n2 / gcd, gcd);
 
     return 0;
 }
