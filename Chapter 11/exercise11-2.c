@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+int arrival_times[8] = {10 * 60 + 0, 11 * 60 + 52, 13 * 60 + 31, 15  * 60 + 0, 16 * 60 + 8, 17 * 60 + 55, 21 * 60 + 20, 23 * 60 + 58};
+int departure_times[8] = {8 * 60 + 0, 9 * 60 + 43, 11 * 60 + 19, 12 * 60 + 47, 14 * 60 + 00, 15 * 60 + 45, 19 * 60 + 0, 21 * 60 + 45};
+
 void find_closest_flight(int desired_time, int *departure_time, int *arrival_time);
 
 int main(void)
@@ -12,7 +15,9 @@ int main(void)
     minutes_to_midnight = hours * 60 + minutes;
     
     find_closest_flight(minutes_to_midnight, &departure_time, &arrival_time);
-    printf("Closest departure time is %2d:%2d");
+
+
+    printf("Closest departure time is in 24 hour time is %4d, arriving at %4d.", departure_time, arrival_time);
 
     
        
@@ -21,27 +26,14 @@ int main(void)
 
 void find_closest_flight(int desired_time, int *departure_time, int *arrival_time)
 {
-    int desired_time; 
-    if (desired_time < (8 * 60))
+    int i;
+    
+    for (i; i <  (int) sizeof(departure_time)/sizeof(departure_time[0]); i++)
     {
-        *departure_time = 8 * 60;
-        *arrival_time = 11 * 60 + 52;
+        if (desired_time < departure_times[i])
+        {
+            *departure_time = departure_times[i];
+            *arrival_time = arrival_times[i];
+        }
     }
-    else if (desired_time < (9 * 60 + 43))
-    {
-        *departure_time = 9 * 60 + 43;
-        *arrival_time = 11 * 60 + 52;
-    }
-    else if (desired_time < (11 * 60 + 19))
-        printf("11:19 a.m., arriving at 1:31 p.m.");
-    else if (desired_time < (12 * 60 + 47))
-        printf("12:47 p.m., arriving at 3:00 p.m.");
-    else if (desired_time < (14 * 60))
-        printf("2:00 p.m., arriving at 4:08 p.m.");
-    else if (desired_time < (15 * 60 + 45))
-        printf("3:45 p.m., arriving at 5:55 p.m.");
-    else if (desired_time < (19 * 60))
-        printf("7:00 p.m., arriving at 9:20 p.m.");
-    else if (desired_time < (21 * 60 + 45))
-        printf("9:45 p.m., arriving at 11:58 p.m.");
 }
