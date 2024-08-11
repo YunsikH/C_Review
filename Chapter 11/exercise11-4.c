@@ -132,8 +132,9 @@ void analyze_hand(int num_in_rank[], int num_in_suit[], bool *straight, bool *fl
     {
         if (num_in_rank[rank]== 4) *four = true;
         if (num_in_rank[rank]== 3) *three = true;
-        if (num_in_rank[rank]== 2) *pairs++;
+        if (num_in_rank[rank]== 2) *pairs = *pairs + 1;
     }  
+
 }
 
 void print_result(bool *straight, bool *flush, bool *four, bool *three, int *pairs)
