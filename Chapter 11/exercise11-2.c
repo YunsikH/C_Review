@@ -16,10 +16,7 @@ int main(void)
     
     find_closest_flight(minutes_to_midnight, &departure_time, &arrival_time);
 
-
-    printf("Closest departure time is in 24 hour time is %4d, arriving at %4d.", departure_time, arrival_time);
-
-    
+    printf("Closest departure time is %4d, arriving at %4d.", departure_time, arrival_time);
        
     return 0;
 }
@@ -28,7 +25,7 @@ void find_closest_flight(int desired_time, int *departure_time, int *arrival_tim
 {
     int i;
     
-    for (i; i <  (int) sizeof(departure_time)/sizeof(departure_time[0]); i++)
+    for (i = 0; i <  (int) sizeof(departure_times)/sizeof(departure_times[0]); i++)
     {
         if (desired_time < departure_times[i])
         {
