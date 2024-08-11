@@ -27,7 +27,7 @@ void max_min(int a[], int n, int *max, int *min)
 
     for(i = 1; i < N; i++)
     {
-        if (a[i] > * max)
+        if (a[i] > *max)
             *max = a[i];
         else if (a[i] <  *min)
             *min =a[i];
