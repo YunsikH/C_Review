@@ -8,26 +8,28 @@ int main(void)
 {
     char message[LENGTH], ch;
     bool plndrme = true;
-    int i, j;
+    int i, j = 0;
 
     printf("Enter a message: ");
     for (i = 0; i < LENGTH; i++) 
     {
         ch = getchar();
-        if (toupper(ch) <= 'A' && toupper(ch) >= 'Z')
+        if ((toupper(ch) >= 'A' && toupper(ch) <= 'Z') || (toupper(ch) >= '0' && toupper(ch) <= '9')) 
+        {
             message[i] = ch;
+        }
         else if (ch == '\n')
         {
             message[i] = ch;
             break;
         }
+        else //if any character not a letter or a newline is encountered go back one space and ignore it.
+            i--;
     }
-
-    j = 0;
 
     for (i--; i >= 0; i--) 
     {
-        if (message[i] != message[j])
+        if (toupper(message[i]) != toupper(message[j]))
             plndrme = false;
         j++;
     }
