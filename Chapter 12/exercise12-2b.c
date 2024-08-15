@@ -13,18 +13,18 @@ int main(void)
     printf("Enter a message: ");
     for (p = &message[0]; p <= &message[LENGTH]; p++) 
     {
-        *p = getchar();
-        if ((toupper(*p) >= 'A' && toupper(*p) <= 'Z') || (toupper(*p) >= '0' && toupper(*p) <= '9')) 
+        ch = getchar();
+        if ((toupper(ch) >= 'A' && toupper(ch) <= 'Z') || (toupper(ch) >= '0' && toupper(ch) <= '9')) 
         {
-            p = *p;
+            *p = ch;
         }
         else if (ch == '\n')
         {
-            message[i] = ch;
+            *p = ch;
             break;
         }
         else //if any character not a letter or a newline is encountered go back one space and ignore it.
-            i--;
+            p--;
     }
 
     for (i--; i >= 0; i--) 
