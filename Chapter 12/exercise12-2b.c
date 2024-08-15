@@ -6,9 +6,9 @@
 
 int main(void)
 {
-    char message[LENGTH], ch, *p;
+    char message[LENGTH], ch, *p, *i_p;
     bool plndrme = true;
-    int i, j = 0;
+    //int i, j = 0;
 
     printf("Enter a message: ");
     for (p = &message[0]; p <= &message[LENGTH]; p++) 
@@ -27,18 +27,18 @@ int main(void)
             p--;
     }
 
-    for (i--; i >= 0; i--) 
+    i_p = &message[0];
+    for (p--; p >= &message[0]; p--)
     {
-        if (toupper(message[i]) != toupper(message[j]))
+        if (toupper(*p) != toupper(*i_p))
             plndrme = false;
-        j++;
+        i_p++;
     }
 
     if (plndrme == true)
         printf("Palindrome.");
     else
         printf("Not a palindrome.");
-
 
     return 0;
 }
